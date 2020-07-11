@@ -6,18 +6,19 @@ export default class Request {
     this.link = link;
     this.description = description;
     this.headers = [];
-    this.className = 'chip blue'
+    this.body = [];
+    this.className = 'chip blue';
   }
 
   get pathname () {
     return this.port + this.link;
   }
 
-  setHeader (name, content) {
-    return this.headers.push({ name, content })
+  setHeader (name, value) {
+    return this.headers.push({ name, value });
   }
 
   json (content) {
-    return JSON.stringify(content)
+    return content;
   }
 }

@@ -1,21 +1,18 @@
 <template>
   <pre class="code">
-    {
-      "ok": true, 
-      "user": { 
-        "id": "INTEGER" 
-        "name": "STRING", 
-        "email": "STRING", 
-        "country": "STRING", 
-        "age": "INTEGER" 
-      } 
-    }
+    {{ json }}
   </pre>
 </template>
 
 <script>
   export default {
-    name: 'TargetJSON'
+    name: 'TargetJSON',
+    props: {
+      json: {
+        type: String,
+        default: ''
+      }
+    }
   }
 </script>
 

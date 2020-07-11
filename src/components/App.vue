@@ -23,7 +23,9 @@
       </div>
 
       <div class="column-7 padding-10">
-        <Content />
+        <Content 
+          v-bind:data="adminLogin"
+        />
       </div>
     </div>
   </div>
@@ -32,11 +34,28 @@
 <script>
   import Content from './Content.vue'
   import Header from './Header.vue'
+
+  import Post from '../js/components/Post.js'
   export default {
     name: 'App',
     components: {
       Content,
       Header
+    },
+    data () {
+      return {
+        requests: [
+          {
+            name: 'Admin login',
+            link: '/api/v1/login/admin',
+            description: 'Autenticar administrador'
+          }
+        ],
+        adminLogin: null
+      }
+    },
+    created () {
+      this.adminLogin = new Post(this.requests[0].name, this.requests[0].link, this.requests[0].description)
     }
   }
 </script>

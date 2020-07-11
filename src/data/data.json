@@ -1,0 +1,470 @@
+[
+  {
+    "name": "Admin login",
+    "link": "/api/v1/login/admin",
+    "description": "Autenticar administrador; Permiso: Todos",
+    "type": "POST",
+    "body": [
+      ["email", "name@email.com"],
+      ["password", "password123"]
+    ],
+    "headers": [
+      ["Content-Type", "application/json"]
+    ],
+    "json": {
+      "ok": true,
+      "admin": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "email": "STRING",
+        "password": "STRING BCRYP",
+        "superAdmin": "BOOLEAN",
+        "createdAt": "DATE",
+        "updatedAt": "DATE"
+      },
+      "token": "STRING TOKEN"
+    }
+  },
+  {
+    "name": "Admins View All",
+    "link": "/api/v1/admins",
+    "description": "Mostrar todos los administradores; Permiso: Solo administrador",
+    "type": "GET",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "admins": [
+        {
+          "id": "INTEGER",
+          "name": "STRING",
+          "email": "STRING",
+          "password": "STRING BCRYPT",
+          "superAdmin": "BOOLEAN",
+          "createdAt": "DATE",
+          "updatedAt": "DATE",
+          "Brands": [ "ARRAY CONTENT" ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Admin View",
+    "link": "/api/v1/admins/:id",
+    "description": "Mostrar administrador por el parámetro :id; Permiso: Solo administrador",
+    "type": "GET",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"] 
+    ],
+    "json": {
+      "ok": true,
+      "admin": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "email": "STRING",
+        "password": "STRING BCRYPT",
+        "superAdmin": "BOOLEAN",
+        "createdAt": "DATE",
+        "updatedAt": "DATE"
+      }
+    }
+  },
+  {
+    "name": "Admin Create",
+    "link": "/api/v1/admins",
+    "description": "Generar administrador; Permiso: Solo Super Administrador",
+    "type": "POST",
+    "body": [
+      ["name", "Truman Burbank"],
+      ["email", "truman@email.com"],
+      ["password", "passwors123"]
+    ],
+    "headers": [
+      ["Content-Type", "application/json"],
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "admin": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "email": "STRING",
+        "password": "STRING BCRYPT",
+        "superAdmin": "BOOLEAN",
+        "createdAt": "DATE",
+        "updatedAt": "DATE"
+      }
+    }
+  },
+  {
+    "name": "Admin Update",
+    "link": "/api/v1/admins/:id",
+    "description": "Actualizar información del administrador obtenido del parametro :id; Permiso: Solo Super Administrador",
+    "type": "PUT",
+    "body": [
+      ["name", "Truman Burbank"],
+      ["email", "truman@email.com"],
+      ["password", "passwors123"]
+    ],
+    "headers": [
+      ["Content-Type", "application/json"],
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "admin": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "email": "STRING",
+        "password": "STRING BCRYPT",
+        "superAdmin": "BOOLEAN",
+        "createdAt": "DATE",
+        "updatedAt": "DATE"
+      }
+    }
+  },
+  {
+    "name": "Admin Delete",
+    "link": "/api/v1/admins/:id",
+    "description": "Eliminar administrador de la base de datos permanentemente; Permiso: Solo Super Administrador",
+    "type": "DELETE",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "message": "El administrador se ha eliminado con exito"
+    }
+  },
+  {
+    "name": "Brands View All",
+    "link": "/api/v1/brands",
+    "description": "Mostrar todas las marcas distribuidoras; Permiso: Solo Administrador y Usuario",
+    "type": "GET",
+    "body": [],
+    "headers": [
+      "Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJuYW1lIjoiTmF5ZWxpIiwiZW1haWwiOiJuYXllbGlAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkc2dKY3lLWW5ER2VnN0hwMy4wNlFydS9vYWhVbmg2ZzUvY1JGZWg3bDdGcE9scUdXMHk1aUMiLCJzdGF0dXMiOnRydWUsImNvdW50cnkiOiJNZXhpY28iLCJjaXR5IjoiQ0RNWCIsImFkZHJlc3MiOiJzaWVtcHJldml2YS1tZXhpY28gMTIzIiwiaW1nIjoiIiwiY3JlYXRlZEF0IjoiMjAyMC0wNy0wNlQyMjo0Njo1OC44ODZaIiwidXBkYXRlZEF0IjoiMjAyMC0wNy0wNlQyMjo0Njo1OC44ODZaIn0sImlhdCI6MTU5NDA3NjYxOCwiZXhwIjoxNTk0MjQ5NDE4LCJhdWQiOiJodHRwOi8vbXlzb2Z0Y29ycC5pbiIsImlzcyI6Ik15c29mdCBjb3JwIiwic3ViIjoic29tZUB1c2VyLmNvbSJ9.F2T4-69Tx-OIXsj33hjRBAi3WLrP_WLYAX3abErOrFz8JhpkejDvohk2RvlqsTrxSXMgyWcxMI-w0VfONQ3_zA"
+    ],
+    "json": {
+      "ok": true,
+      "brands": [
+        {
+          "id": "INTEGER",
+          "name": "STRING",
+          "img": "STRING",
+          "adminId": "INTEGER",
+          "createdAt": "DATE",
+          "updatedAt": "DATE",
+          "Admin": "OBJECT CONTENT"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Brand View",
+    "link": "/api/v1/brands/:id",
+    "description": "Mostrar una marca por el parametro :id; Permiso: Solo Administrador y Usuario",
+    "type": "GET",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true, 
+      "brand": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "img": "STRING",
+        "adminId": "INTEGER",
+        "createdAt": "DATE",
+        "updatedAt": "DATE",
+        "Admin": "OBJECT CONTENT",
+        "Types": [ "ARRAY CONTENT" ],
+        "Brands": [ "ARRAY CONTENT" ]
+      }
+    }
+  },
+  {
+    "name": "Brand Create",
+    "link": "/api/v1/brands",
+    "description": "Insertar marca en la base de datos; Permiso: Solo Administrador",
+    "type": "POST",
+    "body": [
+      ["name", "Red Apple"]
+    ],
+    "headers": [
+      ["Content-Type", "application/x-www-form-urlencoded"],
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true, 
+      "brand": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "img": "STRING",
+        "adminId": "INTEGER",
+        "createdAt": "DATE",
+        "updatedAt": "DATE"
+      }
+    }
+  },
+  {
+    "name": "Brand Update",
+    "link": "/api/v1/brands/:id",
+    "description": "Actualizar información de la marca obtenida del parametro :id; Permiso: Solo Administrador",
+    "type": "PUT",
+    "body": [
+      ["name", "Red Apple 2"]
+    ],
+    "headers": [
+      ["Content-Type", "application/json"],
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true, 
+      "brand": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "img": "STRING",
+        "adminId": "INTEGER",
+        "createdAt": "DATE",
+        "updatedAt": "DATE"
+      }
+    }
+  },
+  {
+    "name": "Brand Delete",
+    "link": "/api/v1/brands/1",
+    "description": "Eliminar marca de la base de datos permanentemente; Permiso: Solo Administrador",
+    "type": "DELETE",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "err": {
+        "message": "El registro fue eliminado con exito"
+      }
+    }
+  },
+  {
+    "name": "Types View All",
+    "link": "/api/v1/types",
+    "description": "Mostrar todos los tipos de ropa; Permiso: Solo Administrador y Ususario",
+    "type": "GET",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "types": [
+        {
+          "id": "INTEGER",
+          "name": "STRING",
+          "adminId": "INTEGER",
+          "createdAt": "DATE",
+          "updatedAt": "DATE",
+          "Admin": "OBJECT CONTENT"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Type View",
+    "link": "/api/v1/types/:id",
+    "description": "Mostrar un tipo por el parametro :id; Permiso: Solo Administrador y Usuario",
+    "type": "GET",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "type": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "adminId": "INTEGER",
+        "createdAt": "DATE",
+        "updatedAt": "DATE",
+        "Admin": "OBJECT CONTENT",
+        "Brands": [ "ARRAY CONTENT" ]
+      }
+    }
+  },
+  {
+    "name": "Brands Per Type View",
+    "link": "/api/v1/types/:id/brands",
+    "description": "Mostrar marcas pertenecientes a un tipo de parametro :id; Permiso: Solo Administrador y Usuario",
+    "type": "GET",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "brands": [
+        {
+          "id": "INTEGER",
+          "name": "STRING",
+          "img": "STRING",
+          "adminId": "INTEGER",
+          "createdAt": "DATE",
+          "updatedAt": "DATE",
+          "BrandTypes": {
+              "createdAt": "DATE",
+              "updatedAt": "DATE",
+              "brandId": "INTEGER",
+              "typeId": "INTEGER"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "Types Per Brand View",
+    "link": "/api/brands/:id/types",
+    "description": "Mostrar tipos pertenecientes a una marca de parametro :id; Permiso: Solo Administrador y Usuario",
+    "type": "GET",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true, 
+      "brand": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "img": "STRING",
+        "adminId": "INTEGER",
+        "createdAt": "DATE",
+        "updatedAt": "DATE"
+      }
+    }
+  },
+  {
+    "name": "Type Create",
+    "link": "/api/v1/types",
+    "description": "Generar tipo; Permiso: Solo Administrador",
+    "type": "POST",
+    "body":[
+      ["name", "T-shirt"]
+    ],
+    "headers": [
+      ["Content-Type", "application/json"],
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "type": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "adminId": "INTEGER",
+        "createdAt": "DATE",
+        "updatedAt": "DATE"
+      }
+    }
+  },
+  {
+    "name": "Type Update",
+    "link": "/api/v1/types/1",
+    "description": "Actualizar información de tipo obtenido del parametro :id; Permiso: Solo Administrador",
+    "type": "PUT",
+    "body":[
+      ["name", "T-shirt"]
+    ],
+    "headers": [
+      ["Content-Type", "application/json"],
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "type": {
+        "id": "INTEGER",
+        "name": "STRING",
+        "adminId": "INTEGER",
+        "createdAt": "DATE",
+        "updatedAt": "DATE"
+      }
+    }
+  },
+  {
+    "name":"Type Delete",
+    "link": "/api/v1/types/:id",
+    "description":"Eliminar tipo de la base de datos permanentemente; Permiso: Solo Administrador",
+    "type":"DELETE",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "message": "El registro fue eliminado con exito"
+    }
+  },
+  {
+    "name": "BrandTypes View All",
+    "link": "/api/v1/brand-types",
+    "description": "Mostrar todas las relaciones de Brand y Type; Permiso: Solo Administrador",
+    "type": "GET",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "brandTypes": [
+        {
+          "brandId": "INTEGER",
+          "typeId": "INTEGER",
+          "createdAt": "DATE",
+          "updatedAt": "DATE"
+        }
+      ]
+    }
+  },
+  {
+    "name": "BrandTypes Create",
+    "link": "/api/v1/brand-types",
+    "description": "Crear relación entre tabla Brand y Type; Permiso: Solo Administrador",
+    "type":"POST",
+    "body": [
+      ["brand_id", 1],
+      ["type_id", 5]
+    ],
+    "headers": [
+      ["Content-Type", "application/json"],
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "brandTypes": [
+        {
+          "brandId": "INTEGER",
+          "typeId": "INTEGER",
+          "createdAt": "DATE",
+          "updatedAt": "DATE"
+        }
+      ]
+    }
+  },
+  {
+    "name": "BrandTypes Delete",
+    "link": "/api/v1/brand-types/:brand_id/:type_id",
+    "description": "Eliminar relación entre tabla Brand y Type; Permiso: Solo Administrador",
+    "type": "DELETE",
+    "body": [],
+    "headers": [
+      ["Authorization", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6MSwibmFtZSI6IkFndXN0aW4gU2FsYXphciBUb3ZhciIsImVtYWlsIjoiZGFuaWVAZW1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkb3g1enRZcHVnMzFEV1hRRC5ZY2l1LmhLazhpMDhLcGZkTTMvSWJ5cTd6L0d0bVlUVS9jaTYiLCJzdXBlckFkbWluIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE3VDAwOjU5OjIzLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE3VDAxOjA0OjQxLjAwMFoifSwiaWF0IjoxNTkyODQ4MDgzLCJleHAiOjE1OTMwMjA4ODMsImF1ZCI6Imh0dHA6Ly9teXNvZnRjb3JwLmluIiwiaXNzIjoiTXlzb2Z0IGNvcnAiLCJzdWIiOiJzb21lQHVzZXIuY29tIn0.IYlxzhCt_Z56mlS-gmD7v5L0Wh7FdQFU8LTM3GgTY6TOrRakK_jZa5u8ndYY_NrbkHZAx0ziyAMw5fXQugd3TA"]
+    ],
+    "json": {
+      "ok": true,
+      "message": "El registro se elimino con exito"
+    }
+  }
+]
