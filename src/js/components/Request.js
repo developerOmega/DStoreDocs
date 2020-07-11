@@ -8,6 +8,7 @@ export default class Request {
     this.headers = [];
     this.body = [];
     this.className = 'chip blue';
+    this.classNameBackground = 'background-blue-light' 
   }
 
   get pathname () {
@@ -19,6 +20,6 @@ export default class Request {
   }
 
   json (content) {
-    return content;
+    return JSON.stringify(content);
   }
 }

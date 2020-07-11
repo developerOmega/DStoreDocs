@@ -1,5 +1,5 @@
 <template>
-  <pre class="code">
+  <pre class="code scroll-x scroll-style">
     {{ json }}
   </pre>
 </template>

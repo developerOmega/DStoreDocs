@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div :class="classNameContent">
     <div class="section flex-row">
 
       <div class="flex-row margin-right-max"> 
@@ -7,7 +7,7 @@
         <div> {{ data.name }} </div> 
       </div>
 
-      <div class="target">
+      <div class="target background-rgba">
         {{ data.link }}
       </div>
 
@@ -21,18 +21,18 @@
 
     <div class="section">
       <div class="medium-title padding-bottom-10">Headers</div>
-      <div class="padding-10 background-gray border-radius-5">
+      <div class="padding-10 background-rgba border-radius-5 scroll-x scroll-style">
         <TargetTable 
-          v-bind:data="headers"
+          v-bind:data="data.headers"
         />
       </div>
     </div>
 
     <div class="section">
       <div class="medium-title padding-bottom-10">Body</div>
-      <div class="padding-10 background-gray border-radius-5">
+      <div class="padding-10 background-rgba border-radius-5">
         <TargetTable 
-          v-bind:data="body"
+          v-bind:data="data.body"
         />
       </div>
     </div>
@@ -55,6 +55,10 @@
       data: {
         type: Object,
         default: {}
+      },
+      dataJson: {
+        type: Object,
+        default: null
       }
     },
     components: {
@@ -69,32 +73,24 @@
     },
     computed: {
       className: function () {
-        return `${this.data.className} text-size-15 margin-right`;
+        return `${this.data.className} text-size-15 margin-right`
       },
       json: function () {
-        return this.data.json(
-          `
-          {
-            ok: true,
-            admin: {
-              id: "INTEGER",
-              name: "STRING",
-              email: "STRING",
-              password: "STRING BCRYP",
-              superAdmin: "BOOLEAN",
-              createdAt: "DATE",
-              updatedAt: "DATE"
-            },
-            token: "STRING TOKEN"
-          }
-          `
-        )
+        return this.data.json(this.dataJson.json)
+      },
+      classNameContent: function () {
+        return `${this.data.classNameBackground} content scroll-y scroll-style`
       }
     },
     created () {
-      this.data.setHeader('Content-Type', 'application/json')
-      this.data.setBody('email', 'name@email.com');
-      this.data.setBody('password', 'password123');
+      
+      this.dataJson.body.forEach( body => {
+        this.data.setBody(body[0], body[1])
+      })
+
+      this.dataJson.headers.forEach( header => {
+        this.data.setHeader(header[0], header[1])
+      })
 
       this.headers = this.data.headers;
       this.body = this.data.body;

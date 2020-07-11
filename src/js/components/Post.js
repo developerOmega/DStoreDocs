@@ -5,6 +5,7 @@ export default class Post extends Request {
     super (name, link, description);
     this.type = 'POST';
     this.className = 'chip green';
+    this.classNameBackground = 'background-green-light' 
   }
 
   setBody (name, value) {

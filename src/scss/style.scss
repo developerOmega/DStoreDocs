@@ -13,15 +13,18 @@
 }
 
 header {
-  background: $primary;
+  position: relative;
+  z-index: 3 !important;
+  -webkit-box-shadow: 2px -2px 7px 1px rgba(0,0,0,0.65);
+  -moz-box-shadow: 2px -2px 7px 1px rgba(0,0,0,0.65);
+  box-shadow: 2px -2px 7px 1px rgba(0,0,0,0.65);
   nav {
-    background: #aaa;
     padding: 10px 5px;
   }
   .logo {
-    color: $second
+    color: $primary
   }
-  .main {
+  .info {
     padding: 20px
   }
 }
@@ -30,9 +33,12 @@ header {
   border-collapse: collapse;
   width: 100%;
   padding: 20px;
+  white-space: normal;
+
   td, th {
     border-bottom: 1px solid #fff;
     padding: 5px;
+    white-space: normal;
   }
 
   th {
@@ -42,6 +48,7 @@ header {
 }
 
 @import './color.scss';
+@import './scrollbar.scss';
 @import './box.scss';
 @import './flex.scss';
 @import './grid.scss';
